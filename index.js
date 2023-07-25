@@ -1,5 +1,6 @@
+require('dotenv').config();
 const express = require('express'); //setting up express server
-const port = 8000; //port num
+const PORT = 8000 || process.env.PORT; //port num
 const db = require('./config/mongoose'); //requiring mongoose config
 
 const app = express(); //running express servers
@@ -14,7 +15,7 @@ app.set('views', './views');
 app.use('/', require('./routes/index'));
 
 
-app.listen(port, function(err) {
-    console.log(`Server running on port ${port}`)
+app.listen(PORT, function(err) {
+    console.log(`Server running on port ${PORT}`)
 });
 
